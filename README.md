@@ -9,8 +9,8 @@
 以下のどのチャンネルでも構わないので、ご連絡ください：
 
  - メール：psi < at > 7io.org
- - [7io.orgのツイート欄](https://7io.org/)
- - このリポジトリのIssue欄
+ - [7io.orgのコメント欄](https://7io.org/)
+ - [このリポジトリのIssue欄](https://github.com/Saccubus/HowToSummon/issues)
  - マストドン：[@psi@sabbat.hexe.net](https://sabbat.hexe.net/psi)
  - discord: `藤咲かえで#8546`
 
