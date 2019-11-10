@@ -166,13 +166,17 @@ java -jar build/libs/jp.osdn.saccubus-3.0-all.jar
 
 他の`./gradlew`のコマンドに関しては[公式サイト](https://docs.gradle.org/current/userguide/userguide.html)を見てください。
 
-あと開発には[IntelliJ Idea](https://www.jetbrains.com/idea/)が使えます。
+gradleでビルドできる関係上、開発には[IntelliJ Idea](https://www.jetbrains.com/idea/)がそのまま使えます。
 
 ![フロントエンド](frontend.jpg)
 
-### nicovideo(E).dll
+### nicovideo(E).dll/saccubus.dll
 
-こちらもLinuxでクロスコンパイルします（Ubuntu 19.04）。
+コメントをフレームに描きこむ機能を担う部分です。
+
+ffmpegからは独立したDLL(Dynamic Link Library)として存在しており、ffmpegのうち、さきゅばすのために当てたパッチの部分が実行時にこいつをdlopen()して読み込み・実行します。ffmpegと一緒にするとさすがに開発もビルドも大変だったので、このような形になりました。
+
+こちらもLinuxでクロスコンパイルできます（Ubuntu 19.04）。Windowsでもできるはず（未確認）。
 
 ```bash
 # 必要なライブラリを入れる
@@ -191,7 +195,11 @@ mkdir build
 cd build
 
 # windows向けにクロスコンパイル
-cmake -DCMAKE_TOOLCHAIN_FILE=../mingw64-cross.cmake
+cmake -DCMAKE_TOOLCHAIN_FILE=../mingw64-cross.cmake ..
+make
+
+# windowsでビルドする時は普通にこれでいいはず
+cmake ..
 make
 ```
 
