@@ -41,9 +41,9 @@
 
 さきゅばすのffmpegは、オリジナルのffmpegにちょっとしたパッチを入れたものです。そのため自分でビルドする必要があります。
 
-なお、ffmpegのライセンスが下記の手順でビルドするとGPLv3になるので、さきゅばすはffmpegだけはGPLv3になります。
+-[リポジトリ](https://github.com/Saccubus/ffmpeg)
 
-[リポジトリ](https://github.com/Saccubus/ffmpeg)
+なお、ffmpegのライセンスが下記の手順でビルドするとGPLv3になるので、さきゅばすはffmpegだけはGPLv3になります。
 
 #### ソースコードのclone
 
@@ -99,7 +99,7 @@ mergeだけでなんとかしようとした時期もあったのですが、や
 
 さきゅばすのwindows用ffmpegバイナリは、クロスコンパイラを使ってLinuxから生成されています。
 
-[リポジトリ](https://github.com/Saccubus/ffmpeg-windows-build-helpers)
+ - [リポジトリ](https://github.com/Saccubus/ffmpeg-windows-build-helpers)
 
 ##### ffmpegのクロスコンパイル・ヘルパのcloneとrebase
 
@@ -158,9 +158,9 @@ ffmpeg.exe: PE32+ executable (console) x86-64 (stripped to external PDB), for MS
 
 いわゆるGUI部分です。
 
-[OpenJDKの最新版](https://www.google.com/search?client=ubuntu&channel=fs&q=openjdk+%E5%85%A5%E3%82%8C%E6%96%B9&ie=utf-8&oe=utf-8)をとりあえず入れておいてください。
+ - [リポジトリ](https://github.com/Saccubus/Saccubus3/tree/master/frontend)
 
-[リポジトリ](https://github.com/Saccubus/Saccubus3/tree/master/frontend)
+[OpenJDKの最新版](https://www.google.com/search?client=ubuntu&channel=fs&q=openjdk+%E5%85%A5%E3%82%8C%E6%96%B9&ie=utf-8&oe=utf-8)をとりあえず入れておいてください。
 
 ```bash
 git checkout git@github.com:Saccubus/Saccubus3.git
@@ -184,6 +184,8 @@ gradleでビルドできる関係上、開発には[IntelliJ Idea](https://www.j
 
 コメントをフレームに描きこむ機能を担う部分です。
 
+ - [リポジトリ](https://github.com/Saccubus/Saccubus3/tree/master/filter)
+
 ffmpegからは独立したDLL(Dynamic Link Library)として存在しており、ffmpegのうち、さきゅばすのために当てたパッチの部分が実行時にこいつをdlopen()して読み込み・実行します。ffmpegと一緒にするとさすがに開発もビルドも大変だったので、このような形になりました。
 
 こちらもLinuxでクロスコンパイルできます（Ubuntu 19.04）。Windowsでもできるはず（未確認）。
@@ -192,8 +194,6 @@ ffmpegからは独立したDLL(Dynamic Link Library)として存在しており�
 # 必要なライブラリを入れる
 sudo apt install build-essential mingw-w64 cmake
 ```
-
-[リポジトリ](https://github.com/Saccubus/Saccubus3/tree/master/filter)
 
 cmakeを使ってビルドしているので、開発には[CLion](https://www.jetbrains.com/clion/)がそのまま使えます。
 
