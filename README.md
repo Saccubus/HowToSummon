@@ -2,7 +2,7 @@
 
 あるいは、ビルド方法とちょっとした技術ドキュメント。
 
-もう最後にビルドしたのが何年か前も思い出せないので、とりあえずビルドできるだけです。最後まで動くかどうかはちょっと確信がもてない。
+もう最後にビルドしたのが何年か前も思い出せないので、とりあえずビルドできるだけです。ビルドできるところまでは確認しましたが、動かして最後まで走りきるかどうかはちょっと確信がもてない。たぶん、無理だと思う。
 
 ## 開発を引き継ぎたい人へ
 
@@ -23,7 +23,7 @@
   - 公式サイト編集権限
 - [OSDNプロジェクト](https://osdn.net/projects/saccubus/)の管理者権限
   - 昔使ってて最近ほとんど使ってない。実質休眠状態です。
-- github/OSDNをやめて他に行くなど
+- github/OSDNをやめて他に行くなどしてももちろんOKです
 
 さきゅばすは基本的にGPLv3かBSD-2-Clauseでデュアルライセンスされているオープンソース・ソフトウェアですので、そこだけご注意を。
 
@@ -40,7 +40,7 @@
 
 さきゅばすのffmpegは、オリジナルのffmpegにちょっとしたパッチを入れたものです。そのため自分でビルドする必要があります。
 
-ちなみに、ffmpegのライセンスが下記の手順でビルドするとGPLv3になるので、さきゅばすはffmpegだけはGPLv3になります。
+なお、ffmpegのライセンスが下記の手順でビルドするとGPLv3になるので、さきゅばすはffmpegだけはGPLv3になります。
 
 [リポジトリ](https://github.com/Saccubus/ffmpeg)
 
@@ -70,9 +70,9 @@ git pull upstream master --ff-only
 git push origin master
 ```
 
-#### さきゅばすパッチの当たったffmpegのソースをつくる
+#### さきゅばすパッチの当たったffmpegのソースを生成する
 
-さきゅばす用のパッチは、gitのrebaseを使って管理しています。
+さきゅばす用のパッチは、gitのrebaseを使って管理しています。一つ上の手順を飛ばした場合は、こちらも飛ばして大丈夫です。
 
 ```bash
 # Saccubus3 ブランチに移動
@@ -120,6 +120,7 @@ git push origin master
 # saccubus3リポジトリでrebase、push
 git checkout saccubus3
 git rebase master
+## ffmpeg同様、ここでconflictする事があります。その時はがんばれ。
 
 git push origin saccubus3 --force
 
@@ -169,6 +170,44 @@ java -jar build/libs/jp.osdn.saccubus-3.0-all.jar
 ![フロントエンド](frontend.jpg)
 
 ### nicovideo(E).dll
+
+こちらもLinuxでクロスコンパイルします（Ubuntu 19.04）。
+
+```bash
+# 必要なライブラリを入れる
+sudo apt install build-essential mingw-w64 cmake
+```
+
+[リポジトリ](https://github.com/Saccubus/Saccubus3/tree/master/filter)
+
+cmakeを使ってビルドしているので、開発には[CLion](https://www.jetbrains.com/clion/)がそのまま使えます。
+
+```bash
+git checkout git@github.com:Saccubus/Saccubus3.git
+cd Saccubus3/filter
+# windows用ビルドにつかうフォルダの作成
+mkdir build
+cd build
+
+# windows向けにクロスコンパイル
+cmake -DCMAKE_TOOLCHAIN_FILE=../mingw64-cross.cmake
+make
+```
+
+こんな画面が出たらビルド成功。
+
+![ビルド成功](filter.jpg)
+
+上で作ったbuildフォルダにできる`saccubus.dll`がフィルタの実体です。
+
+```bash
+% ls
+total 6.9M
+....
+-rwxrwxr-x  1 kaede kaede 3.4M Nov 10 12:48 saccubus.dll
+% file saccubus.dll
+saccubus.dll: PE32+ executable (DLL) (console) x86-64, for MS Windows
+```
 
 ### (おまけ) saccubus.osdn.jp
 
