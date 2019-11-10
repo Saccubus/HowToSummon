@@ -142,7 +142,17 @@ bash compile_saccubus.sh
 
 二時間ぐらい掛かるかな。
 
-うまくいくと、`sandbox/win64/ffmpeg_git/`の下にffmpegが出来上がるはずです。
+うまくいくと、`sandbox/win64/ffmpeg_git/`の下に`ffmpeg.exe`が出来上がるはずです。
+
+```bash
+% cd sandbox/win64/ffmpeg_git/
+
+% ls ffmpeg.exe
+-rwxrwxr-x 1 kaede kaede 88M Nov  9 06:09 ffmpeg.exe
+
+% file ffmpeg.exe
+ffmpeg.exe: PE32+ executable (console) x86-64 (stripped to external PDB), for MS Windows
+```
 
 ### フロントエンド
 
