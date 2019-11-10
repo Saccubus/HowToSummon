@@ -182,7 +182,7 @@ java -jar build/libs/jp.osdn.saccubus-3.0-all.jar
 
 gradleでビルドできる関係上、開発には[IntelliJ Idea](https://www.jetbrains.com/idea/)がそのまま使えます。
 
-![フロントエンド](frontend.jpg| width=100)
+![フロントエンド](frontend.jpg |width=100)
 
 ### nicovideo(E).dll/saccubus.dll
 
