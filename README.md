@@ -41,7 +41,7 @@
 
 さきゅばすのffmpegは、オリジナルのffmpegにちょっとしたパッチを入れたものです。そのため自分でビルドする必要があります。
 
--[リポジトリ](https://github.com/Saccubus/ffmpeg)
+- [リポジトリ](https://github.com/Saccubus/ffmpeg)
 
 なお、ffmpegのライセンスが下記の手順でビルドするとGPLv3になるので、さきゅばすはffmpegだけはGPLv3になります。
 
