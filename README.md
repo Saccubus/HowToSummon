@@ -50,7 +50,7 @@ Saccubus3のffmpegはSaccubus2ベースだが、saccubus.dllはSaccubus1ベー�
 
 全体の構造はこんな感じです：
 
-（描画中）
+![arch.jpg](arch.jpg)
 
 他にもあったかもしれないが、もう忘れた。
 
