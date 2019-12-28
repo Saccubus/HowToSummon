@@ -29,14 +29,16 @@
 
 ### 引き継ぐ時に確実にやらないといけないこと
 
-#### saccubus.dllをSaccubus3のffmpegに互換性がない
+#### saccubus.dllとSaccubus3のffmpegに互換性がない
 
-Saccubus3のffmpegはSaccubus2ベースだが、saccubus.dllはSaccubus1ベースなので。解決策としては、次の２つがあります：
+Saccubus3のffmpegはSaccubus2ベースですが、saccubus.dllはSaccubus1ベースなので、互換性がありません。
+
+解決策としては、次の２つがあります：
 
  - Saccubus3ブランチをSaccubus1ブランチをベースに変更する
    - rebaseでたぶんすごい苦労すると思います
  - saccubus.dllを書き換え、Saccubus3のffmpegに対応させる
-   - わたしも、もう、なにも仕様を覚えてないので、ソースコードの解読が必要
+   - 全く仕様を覚えてないので、ソースコードの解読が必要
 
 #### フロントエンドが最新のニコニコ動画APIに対応してない
 
@@ -116,7 +118,7 @@ git tag Saccubus3-20191109
 git push origin Saccubus3-20191109
 ```
 
-mergeだけでなんとかしようとした時期もあったのですが、やたらコンフリクトしてつらいのでやめました。ちなみにですが、Saccubus{1,2,3}ブランチすべてで同じ操作で最新版ffmpegに追従させることができます。ただ、Saccubus1ブランチはコンフリクトを解消するのはだいたいかなり難しいです。
+mergeだけでなんとかしようとした時期もあったのですが、やたらコンフリクトしてつらいのでやめました。ちなみにですが、Saccubus{1,2,3}ブランチすべてで同じ操作で最新版ffmpegに追従させることができます。ただ、Saccubus1ブランチはコンフリクトを解消するのはたぶんかなり難しいでしょう。
 
 #### ffmpegのクロスコンパイル方法
 
@@ -251,7 +253,7 @@ total 6.9M
 saccubus.dll: PE32+ executable (DLL) (console) x86-64, for MS Windows
 ```
 
-### (おまけ) saccubus.osdn.jp
+### (おまけ) saccubus.github.io
 
 [さきゅばす公式サイト](https://saccubus.github.io/)も[github pages](https://github.com/Saccubus/saccubus.github.io)
 で管理しています。
